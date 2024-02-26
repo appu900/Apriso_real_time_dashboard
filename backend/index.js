@@ -175,6 +175,9 @@ app.get("/stream", (req, res) => {
   });
 });
 
+
+
+
 //  total employee persent in database
 app.get("/api/employee", (request, response) => {
   try {
@@ -254,6 +257,8 @@ app.get('/totalEmployeeCountToday', (req, res) => {
     res.json({ data: results[0].totalEmployees });
   });
 });
+
+
 
 
 // total work done today

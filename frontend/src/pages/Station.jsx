@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Empcard from "../components/Empcard";
 import useLongPolling from "../hooks/useLongPolling";
 
-const Employee = () => {
+const Station = () => {
   const today = new Date();
   const currentdate =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  console.log(currentdate);
+  today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+ 
 
   const data = useLongPolling(
-    `http://localhost:5000/api/employee/${currentdate}`,
+    `http://localhost:5000/api/station/${currentdate}`,
     1000
   );
 
@@ -18,7 +18,7 @@ const Employee = () => {
   return (
     <div>
       <div className="w-full my-3 flex justify-between px-6 mx-auto">
-        <h1 className="text-2xl font-semibold">Employee</h1>
+        <h1 className="text-2xl font-semibold">Station</h1>
         <div className="flex gap-2">
           <div class="relative max-w-sm">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -48,39 +48,32 @@ const Employee = () => {
       {data.length == 0 && (
         <p className="text-center text-2xl font-semibold">No data found</p>
       )}
-      {
-      data.length != 0 && <section class="container mx-auto p-6 font-mono">
+      {data.length != 0 && (
+        <section class="container mx-auto p-6 font-mono">
           <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full overflow-x-auto">
               <table class="w-full">
                 <thead>
                   <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                    <th class="px-4 py-3">Emp_Id</th>
+                    <th class="px-4 py-3">Station_Number</th>
                     <th class="px-4 py-3">Work_count</th>
-                    <th class="px-4 py-3">Performance</th>
                     <th class="px-4 py-3">Date</th>
                   </tr>
                 </thead>
 
                 <tbody class="bg-white">
-                  {data?.map((emp) => {
+                  {data?.map((station) => {
                     return (
                       <tr class="text-gray-700">
                         <td class="px-4 py-3 border">
                           <div class="flex items-center text-sm">
                             <div>
-                              <p class="font-semibold">{emp.EmployeeCode}</p>
+                              <p class="font-semibold">{station.Station_Number}</p>
                             </div>
                           </div>
                         </td>
                         <td class="px-4 py-3 border text-md font-semibold">
-                          {emp.work_count}
-                        </td>
-                        <td class="px-4 py-3 border text-xs">
-                          <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
-                            {" "}
-                            Acceptable{" "}
-                          </span>
+                          {station.work_count}
                         </td>
                         <td class="px-4 py-3 border text-sm">{currentdate}</td>
                       </tr>
@@ -91,9 +84,9 @@ const Employee = () => {
             </div>
           </div>
         </section>
-      }
+      )}
     </div>
   );
 };
 
-export default Employee;
+export default Station;

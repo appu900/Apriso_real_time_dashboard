@@ -9,8 +9,8 @@ import {ChevronRight} from "lucide-react";
 
 const navData = [
   { name: "Apriso", path: "/", icon: <Atom /> },
-  { name: "Employee", path: "/about", icon: <User /> },
-  { name: "Station", path: "/contact", icon: <Computer /> },
+  { name: "Employee", path: "/emp", icon: <User /> },
+  { name: "Station", path: "/station", icon: <Computer /> },
   { name: "Efiiciency", path: "/contact", icon: <Waves /> },
   //   { name: "Contact", path: "/contact" },
 ];
@@ -18,7 +18,7 @@ const navData = [
 const SideNavbar = () => {
   const navigate = useNavigate();
   return (
-    <div className=" w-[200px] py-4 sticky bottom-0 top-0 h-screen bg-[#3538A1] text-white ">
+    <div className=" w-[200px] h-screen sticky bottom-0 left-0 top-0 bg-[#3538A1] text-white ">
       <div className="px-2">
         <ul className="flex flex-col gap-5">
           {navData.map((item, index) => {

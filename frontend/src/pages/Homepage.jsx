@@ -13,7 +13,6 @@ import Paper from "@mui/material/Paper";
 
 export default function Homepage() {
   const [data, setData] = useState([]);
-  const [finaldata, setFinalData] = useState([]);
 
   useEffect(() => {
     const eventSource = new EventSource("http://localhost:5000/stream");
@@ -59,7 +58,7 @@ export default function Homepage() {
         {/* <LayoutCards /> */}
       </div>
       {/* data section */}
-      <section className="">
+      <section className=" bg-[#ffff]">
         <p className="mb-4 text-xl ">Latest Readings</p>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">

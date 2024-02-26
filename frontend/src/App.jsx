@@ -1,11 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
 import Rootlayout from "./layouts/Rootlayout";
 import { Route, Routes } from "react-router-dom";
 import Employee from "./pages/Employee";
 import Homepage from "./pages/Homepage";
+import Station from "./pages/Station";
 
 function App() {
   return (
@@ -13,7 +12,8 @@ function App() {
       <Rootlayout>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<h1>About</h1>} />
+          <Route path="/station" element={<Station />} />
+          <Route path="/emp" element={<Employee />} />
         </Routes>
       </Rootlayout>
     </div>

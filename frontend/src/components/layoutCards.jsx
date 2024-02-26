@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { User2 } from "lucide-react";
 import axios from "axios";
 
-const LayoutCards = ({ icon, title, url }) => {
+const LayoutCards = ({ icon, title, url ,bgColor}) => {
   const [data, setData] = useState([]);
 
   // fetch data from server
@@ -17,7 +17,7 @@ const LayoutCards = ({ icon, title, url }) => {
     fetchData();
   });
   return (
-    <div className="w-[15rem] h-[10rem] text-white bg-[#5e2aee] border border-gray-300 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100 rounded-md cursor-pointer flex items-center justify-center">
+    <div className={`w-[15rem] h-[10rem] text-white bg-[#3538A1] border border-gray-300 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100 rounded-md cursor-pointer flex items-center justify-center`}>
       <div>
         <div className="border w-[35px] p-1  border-indigo-500 rounded">
           <User2 />
